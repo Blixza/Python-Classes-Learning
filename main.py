@@ -1,25 +1,29 @@
 # Text CS2 buy menu
-from weapons import * # import all the weapons
+from weapons import Rifle, Pistol, Heavy, SMG, Grenade, Equip  # import all the weapons
+import shop  # import the shop module
 from rich.console import Console
 
 console = Console()
+shop.initialize()
+
+def display_weapons(weapons):
+    for weapon in weapons:
+        weapon.display()
 
 def main():
     console.print('[bold]Here is the buy menu:[/bold]')
-    print('\nRifles:')
-    for rifle in rifles:
-        rifle.display()
-    print('\nPistols:')
-    for pistol in pistols:
-        pistol.display()
-    print('\nHeavy:')
-    for heavy in heavies:
-        heavy.display()
-    print('\nSMG:')
-    for smg in smgs:
-        smg.display()
-    print('\nEquipment:')
-    for equip in equips:
-        equip.display()
+    console.print('\n:ewe:Rifles:')
+    display_weapons(Rifle.rifles)
+    console.print('\n:pistol:Pistols:')
+    display_weapons(Pistol.pistols)
+    console.print('\n:otter:Heavy:')
+    display_weapons(Heavy.heavies)
+    console.print('\n:ox:SMG:')
+    display_weapons(SMG.smgs)
+    console.print('\n:cat:Grenades:')
+    display_weapons(Grenade.grenades)
+    console.print('\n:crab:Equipment:')
+    display_weapons(Equip.equips)
 
-main()
+if __name__ == '__main__':
+    main()
